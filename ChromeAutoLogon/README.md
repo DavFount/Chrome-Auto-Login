@@ -8,6 +8,10 @@ Once the application is compiled you can easily create custom logins for various
 	* Add your appSettings
 	```xml
 		<appSettings>
+		  <add key="restrictAccess" value="true"/>
+		  <add key="domainName" value="contoso.com"/>
+		  <add key="searchBase" value="DC=contoso,DC=com"/>
+		  <add key="securityGroup" value="Group1;Group2;Group3"/>
 		  <add key="username" value=""/>
 		  <add key="password" value=""/>
 		  <add key ="url" value=""/>
@@ -16,6 +20,10 @@ Once the application is compiled you can easily create custom logins for various
 		  <add key="submitField" value=""/>
 		</appSettings>
 	```
+	* restrictAccess set to true if you want to restrict access based on AD Groups (Values: true or false)
+	* domainName is the Domain Name of your organization
+	* SearchBase is the base OU where your groups are held. You can set to the Root of the domain as done above and sub-directories will be searched also.
+	* securityGroup is a semi-colon deliminated list of groups permitted to use that shortcut. I have found that Domain Admins doesn't seem to work in this spot.
 	* Username is the login username
 	* Password is the login password
 	* Url is the path to the login form
